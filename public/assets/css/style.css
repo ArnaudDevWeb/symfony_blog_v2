@@ -4,6 +4,3 @@ background: linear-gradient(#b1e0f5, #18a7ef);
 .card-header:hover{
     background: linear-gradient(#f1e4e3b9, #ef1f18);
 }
-.card{
-    height:400px;
-}
