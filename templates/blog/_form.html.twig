@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+<section class="container d-flex flex-column w-25  mx-auto my-auto">
+    {{ form_row(form.title, {'attr' : {'class' : 'form-control'}, 'label' : 'Titre :' }) }}
+    {{ form_row(form.content, {'attr' : {'class' : 'form-control h:auto'}, 'label' : 'Contenu :' }) }}
+    {{ form_row(form.isPublished, {'attr' : {'class' : 'form-check-input mx-2'}, 'label' : 'Publier l\'article ? : ' }) }}
+
+<button type="submit" class="btn btn-outline-primary"> Soumettre</button>
+</section>
+{{ form_end(form) }}
