@@ -8,6 +8,7 @@
         <div class="card border-secondary col-3  mb-3 p-0 mx-auto" style="max-width: 20rem;">
                 <div class="card-header">{{ article.title }}</div>
                     <div class="card-body">
+                        <p class="pcategory fw-bolder card-text">Catégorie : {{article.category.name}}</p>
                         <p class="card-text">{{ article.content }}</p>
                         <p class="card-text">Crée le :
                             {{ article.createdAt|date('d/m/Y') }}</p>

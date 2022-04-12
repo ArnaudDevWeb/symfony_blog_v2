@@ -34,6 +34,8 @@ class ArticleType extends AbstractType
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Choix catégorie'
             ])
             // NotBlank, lengh mini a 100
             ->add('content', TextareaType::class, [
@@ -47,7 +49,9 @@ class ArticleType extends AbstractType
                     ])
                 ]
             ]) 
-            ->add('isPublished', CheckboxType::class)
+            ->add('isPublished', CheckboxType::class, [
+                'required' => false
+            ])
         ;
     }
 
