@@ -9,7 +9,7 @@
                 <div class="card-header">{{ categorie.name }}</div>
                     <div class="card-body">
                         <p class=" card-text">{{categorie.slug}}</p>
-                       <a href="{{ path('blog_edit', {slug: categorie.slug}) }}" class="btn btn-outline-warning">Modifier</a>
+                       <a href="{{ path('category_edit', {slug: categorie.slug}) }}" class="btn btn-outline-warning">Modifier</a>
                         <a href="{{ path('category_delete',{slug: categorie.slug}) }}" class="btn btn-outline-danger">Supprimer</a>
                     </div>
                 </div>
