@@ -2,6 +2,7 @@
 <section class="container d-flex flex-column w-25  mx-auto my-auto">
     {{ form_row(form.title, {'attr' : {'class' : 'form-control'}, 'label' : 'Titre :' }) }}
     {{ form_row(form.category, {'attr' : {'class' : 'form-control'}, 'label' : 'Catégorie :' }) }}
+    {# {{ form_row(form.tag, {'attr' : {'class' : 'form-control'}, 'label' : 'Tags :' }) }} #}
     {{ form_row(form.content, {'attr' : {'class' : 'contentbox form-control'}, 'label' : 'Contenu :' }) }}
     {{ form_row(form.isPublished, {'attr' : {'class' : 'form-check-input mx-2'}, 'label' : 'Publier l\'article ? : ' }) }}
 
