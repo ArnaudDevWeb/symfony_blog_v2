@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Tag;
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Repository\TagRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -37,7 +39,17 @@ class ArticleType extends AbstractType
                 'choice_label' => 'name',
                 'placeholder' => 'Choix catégorie'
             ])
-            // NotBlank, lengh mini a 100
+            ->add('tags', EntityType::class, [
+                'class' => Tag::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Choix un ou plusieurs tags',
+                'required' => false,
+                'multiple' => true,
+                'query_builder' => function (TagRepository $repo) {
+                    return $repo->createQueryBuilder('u')
+                    ->orderBy('u.id', 'ASC');
+                }
+            ])
             ->add('content', TextareaType::class, [
                 'constraints' => [
                     new NotBlank([

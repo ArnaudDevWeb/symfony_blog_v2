@@ -43,12 +43,29 @@
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('category_new')}}">Ajout catégorie</a>
 							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('tag_list')}}">Liste des tags</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('tag_new')}}">Ajout tag</a>
+							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<main class="container"> {% block body %}{% endblock %}
+		<main class="container"> 
+		{% for label, messages in app.flashes %}
+
+			{% for message in messages %}
+				<div class="alert alert-dismissible alert-{{ label }}">
+  				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  				<p class="text-center">{{ message }}</p>
+				</div>
+			{% endfor %}
+		{% endfor %}
+
+		{% block body %}{% endblock %}
 			</main>
 		</body>
 	</html>
