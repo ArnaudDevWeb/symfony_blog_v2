@@ -29,8 +29,8 @@ class ArticleType extends AbstractType
                     new Length([
                         'min' => 2,
                         'max' => 75,
-                        'minMessage' => 'Le titre doit contenir au moins {{ min }} caractères.',
-                        'minMessage' => 'Le titre doit contenir au maximum {{ max }} caractères.'
+                        'minMessage' => 'Le titre doit contenir au moins {{ limit }} caractères.',
+                        'minMessage' => 'Le titre doit contenir au maximum {{ limit }} caractères.'
                     ])
                 ]
             ])

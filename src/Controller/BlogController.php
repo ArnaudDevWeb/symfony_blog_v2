@@ -2,27 +2,36 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Entity\Article;
+use App\Form\FilterType;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BlogController extends AbstractController
 {
     #[Route('bloglist', name: 'blog_list')]
-    public function list(ArticleRepository $repo): Response
+    public function list(Request $request, ArticleRepository $repo): Response
     {
-        
+        $filter = $this->createForm(FilterType::class);
+        $filter->handleRequest($request);
         $articles = $repo -> findAll();
 
+        if($filter->isSubmitted() && $filter->isValid()){
+            $category = $filter['category']->getData();
+            $order = ($filter["dateOrder"]->getData()? 'ASC' : 'DESC');
+            $articles = $repo->findBy(['category' => $category], ['updatedAt' => $order]);
+        }
+
         return $this->render('blog/list.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'filter' => $filter->createView()
         ]);
     }
 

@@ -24,8 +24,8 @@ class CategoryType extends AbstractType
                 new Length([
                     'min' => 2,
                     'max' => 70,
-                    'minMessage' => 'Le nom doit contenir au moins {{ min }} caractères.',
-                    'minMessage' => 'Le nom doit contenir au maximum {{ max }} caractères.'
+                    'minMessage' => 'Le nom doit contenir au moins {{ limit }} caractères.',
+                    'minMessage' => 'Le nom doit contenir au maximum {{ limit }} caractères.'
                 ])
                 ]
                
