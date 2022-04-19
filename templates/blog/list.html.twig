@@ -5,9 +5,13 @@
 {% block body %}
 
 	<h1 class="text-center fw-bolder">Liste des articles</h1>
-	{{ form_start(filter) }}
-		{{form_widget(filter) }}
-	{{ form_end(filter) }}
+	<div class="d-flex mx-auto justify-content-center text-center">
+		<div>
+			{{ form_start(filter) }}
+				{{form_widget(filter) }}
+			{{ form_end(filter) }}
+		</div>
+	</div>
 	<div class="row mt-5 d-flex justify-content-center">
 		{% for article in articles %}
 			<div class="card border-secondary col-3 me-2 mb-3 p-0 h-auto" style="max-width: 20rem;">

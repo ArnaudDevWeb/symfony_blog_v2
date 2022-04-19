@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Tag;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,13 +19,22 @@ class FilterType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
+                'attr' => ['class' => 'form-control d-flex  mx-auto'],
+                'mapped' => false,
+                'required' =>false
+            ])
+            ->add('tag', EntityType::class, [
+                'class' => Tag::class,
+                'choice_label' => 'name',
                 'attr' => ['class' => 'form-control'],
-                'mapped' => false
+                'mapped' => false,
+                'required' =>false
             ])
             ->add('dateOrder', ChoiceType::class, [
                 'choices' => [
                     'Croissant' => true,
                     'Décroisant' => false,
+                    'required' =>false
                 ],
                 'mapped' => false,
                 'attr' => ['class' => 'form-control']
